@@ -1,0 +1,10 @@
+{
+  "model": "/e/project1/e-dev-2026d09-075/fairforget/models/Qwen3-8B/b968826d9c46dd6066d109eabc6255188de91218",
+  "chunk": 32,
+  "sets": [
+    "detector",
+    "stacker",
+    "val",
+    "test"
+  ]
+}

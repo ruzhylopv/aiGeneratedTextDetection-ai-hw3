@@ -4,3 +4,5 @@ outputs/
 cluster/results/*/curves_stacker_*.csv.gz
 cluster/results/*/curves_val_*.csv.gz
 cluster/results/*/curves_test_*.csv.gz
+# Qwen chunk tables (66 MB; rebuild with `make -C cluster qwen`, features are cached in outputs/final/)
+cluster/results/*/qwen_chunks_*.csv.gz

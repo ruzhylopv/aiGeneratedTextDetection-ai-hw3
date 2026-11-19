@@ -1,0 +1,6 @@
+job_id:   3017273
+purpose:  qwen3-8b log-probs
+command:  bash jobs/qwen.sh
+nodes:    jpbo-028-31
+started:  2026-11-19 22:15:02
+commit:   483e268 (three-inputs)

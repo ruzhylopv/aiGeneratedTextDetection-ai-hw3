@@ -1,0 +1,6 @@
+job_id:   3017270
+purpose:  encoder v2: BGE-M3 train + predict
+command:  bash jobs/encoder2.sh
+nodes:    jpbo-028-12
+started:  2026-11-19 22:15:03
+commit:   483e268 (three-inputs)

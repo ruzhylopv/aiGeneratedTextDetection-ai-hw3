@@ -1,0 +1,14 @@
+{
+  "name": "encoder-v2",
+  "model": "BAAI/bge-m3",
+  "max_len": 4096,
+  "epochs": 2,
+  "lr": 1e-05,
+  "batch_size": 8,
+  "grad_accum": 2,
+  "warmup_frac": 0.06,
+  "weight_decay": 0.01,
+  "texts": 100001,
+  "train_minutes": 21.9,
+  "model_dir": "/e/scratch/e-dev-2026d09-075/ruzhylo1/ai-hw3/models/encoder-v2"
+}
