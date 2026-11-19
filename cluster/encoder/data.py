@@ -15,11 +15,13 @@ VAL_FOLD = 0
 
 N_TRAIN_SAMPLE = 50_000  # the fixed training sample of the baseline and Branch A
 N_STACKER = 30_000       # held-out texts for the curve stacker
+N_ENCODER = 100_000      # training texts of the long-context encoder (encoder v2)
 
 REPO_DIR = Path(__file__).resolve().parents[2]
 SPLITS_CSV = REPO_DIR / "splits" / "train_folds.csv"
 ROLES_CSV = REPO_DIR / "splits" / "curve_roles.csv"  # id, role (detector / stacker)
 GATE_CSV = REPO_DIR / "splits" / "gate_texts.csv"    # id, set (val_plot / stacker_slice)
+ENCODER_CSV = REPO_DIR / "splits" / "encoder_train.csv"  # id: training texts of encoder v2
 
 
 def data_dir():
@@ -93,12 +95,27 @@ def build_roles(train_fold):
                      ignore_index=True)
 
 
+def build_encoder_set(train_fold, stacker_ids):
+    """Training texts of encoder v2: N_ENCODER texts of the training folds, never a stacker text or its twin.
+
+    The stacker learns from encoder v2's probabilities on the stacker set, so encoder v2 must not have seen
+    those texts or their human-fusion twins (same 200-character prefix). Drawn with the label × language
+    shares of the training folds.
+    """
+    stacker_prefixes = set(prefix_key(train_fold.loc[train_fold["id"].isin(stacker_ids), "text"]))
+    allowed = ~train_fold["id"].isin(stacker_ids) & ~prefix_key(train_fold["text"]).isin(stacker_prefixes)
+    shares = (train_fold["label"] + "|" + train_fold["lang"]).value_counts(normalize=True)
+    return sample_with_shares(train_fold[allowed], N_ENCODER, shares)[["id"]]
+
+
 def load_sets(data_path=None):
     """Texts of every set of the curve pipeline: detector, stacker, val and test."""
     data = load_data(data_path)
     roles = pd.read_csv(ROLES_CSV)
     sets = {role: data["train"][data["train"]["id"].isin(roles.loc[roles["role"] == role, "id"])]
             .reset_index(drop=True) for role in ("detector", "stacker")}
+    if ENCODER_CSV.exists():  # the encoder set overlaps the detector set, so it has its own file
+        sets["encoder"] = data["train"][data["train"]["id"].isin(pd.read_csv(ENCODER_CSV)["id"])].reset_index(drop=True)
     return {**sets, "val": data["val"], "test": data["test"]}
 
 

@@ -23,7 +23,7 @@ from huggingface_hub import snapshot_download
 COMPETITION = "ai-generated-text-detection-hw3-ucu-ai-2026"
 FILES = ["train.csv", "test.csv", "sample_submission.csv"]
 # Open-weight encoders only. mDeBERTa is downloaded now for step 3, so no second login-node trip.
-MODELS = ["FacebookAI/xlm-roberta-base", "microsoft/mdeberta-v3-base"]
+MODELS = ["FacebookAI/xlm-roberta-base", "microsoft/mdeberta-v3-base", "BAAI/bge-m3"]  # bge-m3: encoder v2
 # PyTorch weights, configs and tokenizer files; skips the TF / Flax / ONNX copies.
 WEIGHT_PATTERNS = ["*.json", "*.safetensors", "pytorch_model.bin", "*.model", "*.txt"]
 

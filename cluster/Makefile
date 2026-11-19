@@ -1,5 +1,5 @@
 # HW3 encoder on JUPITER. Run from the repo root as `make -C cluster <target>`.
-.PHONY: env data smoke submit jobs usage pull branch-a gate full score watch
+.PHONY: env data smoke submit jobs usage pull branch-a gate full score watch encoder2 encoder2-predict qwen qwen-path
 
 ACCOUNT := e-dev-2026d09-075
 
@@ -41,6 +41,25 @@ full:
 # Scoring only, with the already trained full detector.
 score:
 	JOB_TIME=02:00:00 JOB_NAME=score bash submit.sh "curves: scoring" bash jobs/score.sh
+
+# ---- Three inputs: encoder v2 + Qwen log-probs (see THREE_INPUTS_JUPITER.md) ----
+
+# Encoder v2: BGE-M3 fine-tuned on whole texts, then predictions for the stacker, val and test sets.
+encoder2:
+	JOB_TIME=03:00:00 JOB_NAME=encoder2 bash submit.sh "encoder v2: BGE-M3 train + predict" bash jobs/encoder2.sh
+
+# Encoder v2 predictions only (the model is already in $$HW3_MODELS/encoder-v2).
+encoder2-predict:
+	JOB_TIME=01:00:00 JOB_NAME=encoder2p bash submit.sh "encoder v2: predict" \
+		python -m torch.distributed.run --standalone --nproc_per_node=4 -m encoder.long_encoder predict
+
+# Qwen3-8B log-probs of the detector, stacker, val and test sets. QWEN=<folder> overrides the shared copy.
+qwen:
+	QWEN_MODEL=$(QWEN) JOB_TIME=03:00:00 JOB_NAME=qwen bash submit.sh "qwen3-8b log-probs" bash jobs/qwen.sh
+
+# Where the shared Qwen3-8B is (login node).
+qwen-path:
+	@bash find_qwen.sh || { echo "Qwen3-8B not found under /e/project1/e-dev-2026d09-075/fairforget/models"; exit 1; }
 
 # Follow a job: waits while it is queued, then shows its log until it ends (Ctrl-C stops watching only).
 watch:
