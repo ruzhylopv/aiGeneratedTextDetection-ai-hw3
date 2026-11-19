@@ -28,6 +28,7 @@ name=${JOB_NAME:-hw3}
 job_id=$(sbatch --parsable --time="${JOB_TIME:-01:00:00}" --job-name="$name" \
     --output="$HW3_LOGS/%x-%j.out" run.sbatch "$@")
 echo "Submitted job $job_id"
+echo "  watch:   make -C cluster watch JOB=$job_id   (waits in the queue, then follows the log)"
 echo "  log:     $HW3_LOGS/$name-$job_id.out   (follow: tail -f <log>)"
 echo "  outputs: $HW3_RUNS/$job_id/"
 echo "  status:  squeue -j $job_id     cancel: scancel $job_id"

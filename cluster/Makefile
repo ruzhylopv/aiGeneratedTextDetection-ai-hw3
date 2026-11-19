@@ -1,5 +1,5 @@
 # HW3 encoder on JUPITER. Run from the repo root as `make -C cluster <target>`.
-.PHONY: env data smoke submit jobs usage pull branch-a gate full score
+.PHONY: env data smoke submit jobs usage pull branch-a gate full score watch
 
 ACCOUNT := e-dev-2026d09-075
 
@@ -41,6 +41,11 @@ full:
 # Scoring only, with the already trained full detector.
 score:
 	JOB_TIME=02:00:00 JOB_NAME=score bash submit.sh "curves: scoring" bash jobs/score.sh
+
+# Follow a job: waits while it is queued, then shows its log until it ends (Ctrl-C stops watching only).
+watch:
+	@test -n "$(JOB)" || { echo 'usage: make -C cluster watch JOB=<job_id>'; exit 1; }
+	@bash watch.sh $(JOB)
 
 # Your queued and running jobs.
 jobs:

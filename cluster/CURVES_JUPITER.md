@@ -58,8 +58,9 @@ make -C cluster gate
 ```
 It prints the job id and the log path. Follow the job with:
 ```bash
-tail -f /e/scratch/e-dev-2026d09-075/$USER/ai-hw3/logs/gate-<job_id>.out
+make -C cluster watch JOB=<job_id>   # waits while queued, then follows the log until the job ends
 ```
+Ctrl-C only stops watching; the job keeps running.
 
 The job runs three parts, one after the other, on all 4 GPUs:
 1. `encoder.detector --mode gate`: trains a small human-vs-ai detector on 10k texts. The log shows `detector-gate: 10,000 texts ...`, the training progress, and finally a JSON summary with `train_minutes`.
