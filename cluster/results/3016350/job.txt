@@ -1,0 +1,6 @@
+job_id:   3016350
+purpose:  curves: full detector + scoring
+command:  bash jobs/full.sh
+nodes:    jpbo-019-34
+started:  2026-11-19 21:09:03
+commit:   6a1e028 (curve-fusion)

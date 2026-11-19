@@ -1,0 +1,23 @@
+{
+  "name": "detector-full",
+  "mode": "full",
+  "init": "branch_a",
+  "n_texts": null,
+  "sizes": [
+    128,
+    256
+  ],
+  "max_windows": 6,
+  "epochs": 2,
+  "lr": 2e-05,
+  "batch_size": 32,
+  "warmup_frac": 0.06,
+  "weight_decay": 0.01,
+  "texts": 34638,
+  "windows": {
+    "128": 188685,
+    "256": 164798
+  },
+  "train_minutes": 4.7,
+  "model_dir": "/e/scratch/e-dev-2026d09-075/ruzhylo1/ai-hw3/models/detector-full"
+}

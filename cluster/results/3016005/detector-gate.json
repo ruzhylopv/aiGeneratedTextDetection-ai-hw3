@@ -1,0 +1,21 @@
+{
+  "name": "detector-gate",
+  "mode": "gate",
+  "init": "branch_a",
+  "n_texts": 10000,
+  "sizes": [
+    128
+  ],
+  "max_windows": 8,
+  "epochs": 1,
+  "lr": 2e-05,
+  "batch_size": 32,
+  "warmup_frac": 0.06,
+  "weight_decay": 0.01,
+  "texts": 10000,
+  "windows": {
+    "128": 70815
+  },
+  "train_minutes": 0.5,
+  "model_dir": "/e/scratch/e-dev-2026d09-075/ruzhylo1/ai-hw3/models/detector-gate"
+}

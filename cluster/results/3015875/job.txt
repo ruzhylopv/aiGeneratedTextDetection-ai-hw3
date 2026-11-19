@@ -1,0 +1,6 @@
+job_id:   3015875
+purpose:  smoke test
+command:  python -m encoder.smoke_test
+nodes:    jpbo-021-25
+started:  2026-11-19 20:32:16
+commit:    ()

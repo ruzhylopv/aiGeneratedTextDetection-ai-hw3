@@ -1,0 +1,23 @@
+{
+  "hardware": {
+    "host": "jpbo-021-25.jupiter.internal",
+    "torch": "2.9.1+cu128",
+    "gpus": [
+      "NVIDIA GH200 120GB, 95 GB",
+      "NVIDIA GH200 120GB, 95 GB",
+      "NVIDIA GH200 120GB, 95 GB",
+      "NVIDIA GH200 120GB, 95 GB"
+    ],
+    "cpus": 1,
+    "bf16": true
+  },
+  "sizes": {
+    "train": 245116,
+    "val": 27236,
+    "test": 25000
+  },
+  "mean_windows_per_text": 2.271875,
+  "train_seq_per_s": 190.98562745504,
+  "infer_seq_per_s": 404.1341740943863,
+  "load_microsoft/mdeberta-v3-base": "WARNING: ValueError: `tiktoken` is required to read a `tiktoken` file. Install it with `pip install tiktoken`."
+}

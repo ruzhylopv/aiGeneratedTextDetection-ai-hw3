@@ -93,9 +93,9 @@ def build_roles(train_fold):
                      ignore_index=True)
 
 
-def load_sets():
+def load_sets(data_path=None):
     """Texts of every set of the curve pipeline: detector, stacker, val and test."""
-    data = load_data()
+    data = load_data(data_path)
     roles = pd.read_csv(ROLES_CSV)
     sets = {role: data["train"][data["train"]["id"].isin(roles.loc[roles["role"] == role, "id"])]
             .reset_index(drop=True) for role in ("detector", "stacker")}

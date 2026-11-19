@@ -1,0 +1,223 @@
+{
+  "title": "Curve-based fusion detection",
+  "subtitle": "Branch B scores every window of a text; a stacker combines its p(AI) curves with Branch A",
+  "style": {
+    "gap": 40,
+    "font_size": 12
+  },
+  "auto_edges": false,
+  "legend": [
+    {
+      "label": "Branch B (own approach)",
+      "color": "#FDE2E1"
+    },
+    {
+      "label": "Branch A (tuned 3-class XLM-R, fixed)",
+      "color": "#DCE6FB"
+    },
+    {
+      "label": "data set",
+      "color": "#EEF0F2"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "text",
+      "type": "tokens",
+      "n": 9,
+      "orient": "horizontal",
+      "label": "text\n(EN / DE)",
+      "legend": false
+    },
+    {
+      "id": "win",
+      "type": "block",
+      "label": "sliding windows\n64 / 128 / 256 tokens\nstep = size / 4",
+      "color": "#FDE2E1",
+      "w": 150,
+      "h": 74
+    },
+    {
+      "id": "det",
+      "type": "block",
+      "label": "window detector\nXLM-R, human vs ai\n(init: Branch A)",
+      "bold": false,
+      "color": "#FDE2E1",
+      "w": 150,
+      "h": 74
+    },
+    {
+      "id": "curve",
+      "type": "grid",
+      "rows": 1,
+      "cols": 10,
+      "cell": 22,
+      "values": [
+        [
+          "0",
+          "0",
+          "0",
+          ".1",
+          ".9",
+          "1",
+          "1",
+          ".8",
+          "0",
+          "0"
+        ]
+      ],
+      "highlight": [
+        {
+          "r": 0,
+          "c": 4,
+          "h": 1,
+          "w": 4,
+          "color": "#D1495B"
+        }
+      ],
+      "label": "p(AI) curve\none per window size",
+      "legend": false
+    },
+    {
+      "id": "feat",
+      "type": "block",
+      "label": "curve features\nbasic · changepoint\nsegment · cross-scale",
+      "color": "#FDE2E1",
+      "w": 160,
+      "h": 74
+    },
+    {
+      "id": "stack",
+      "type": "block",
+      "label": "stacker\nLogReg / HGB\n+ class weights",
+      "bold": true,
+      "color": "#FFF1C9",
+      "w": 130,
+      "h": 74,
+      "gap": 60
+    },
+    {
+      "id": "out",
+      "type": "block",
+      "label": "human\nai\nfusion",
+      "color": "#E6DDF5",
+      "w": 70,
+      "h": 74,
+      "gap": 80
+    },
+    {
+      "id": "brA",
+      "type": "block",
+      "label": "Branch A\nXLM-R 3-class\nmean over 512-token windows",
+      "color": "#DCE6FB",
+      "w": 230,
+      "h": 64,
+      "y": -150,
+      "x": 560
+    },
+    {
+      "id": "dset",
+      "type": "block",
+      "label": "detector set\nhuman + ai of\nthe fixed 50k sample",
+      "color": "#EEF0F2",
+      "w": 170,
+      "h": 62,
+      "y": 150,
+      "x": 370,
+      "dashed": true
+    },
+    {
+      "id": "sset",
+      "type": "block",
+      "label": "stacker set\n30k held out\ntwin-guarded",
+      "color": "#EEF0F2",
+      "w": 170,
+      "h": 62,
+      "y": 150,
+      "x": 1030,
+      "dashed": true
+    },
+    {
+      "id": "vset",
+      "type": "block",
+      "label": "val (fold 0)\nscored once\nvs R0 = 0.902",
+      "color": "#EEF0F2",
+      "w": 130,
+      "h": 62,
+      "y": 150,
+      "x": 1230,
+      "dashed": true
+    }
+  ],
+  "edges": [
+    {
+      "from": "text",
+      "to": "win"
+    },
+    {
+      "from": "win",
+      "to": "det"
+    },
+    {
+      "from": "det",
+      "to": "curve"
+    },
+    {
+      "from": "curve",
+      "to": "feat"
+    },
+    {
+      "from": "feat",
+      "to": "stack"
+    },
+    {
+      "from": "stack",
+      "to": "out"
+    },
+    {
+      "from": "text",
+      "to": "brA",
+      "route": "vh",
+      "from_anchor": "n",
+      "to_anchor": "w"
+    },
+    {
+      "from": "brA",
+      "to": "stack",
+      "route": "hv",
+      "from_anchor": "e",
+      "to_anchor": "n",
+      "label": "log p(human, ai, fusion)"
+    },
+    {
+      "from": "dset",
+      "to": "det",
+      "label": "trains",
+      "dashed": true,
+      "color": "#8c959f",
+      "route": "straight",
+      "from_anchor": "n",
+      "to_anchor": "s"
+    },
+    {
+      "from": "sset",
+      "to": "stack",
+      "label": "fits",
+      "dashed": true,
+      "color": "#8c959f",
+      "route": "straight",
+      "from_anchor": "n",
+      "to_anchor": "s"
+    },
+    {
+      "from": "vset",
+      "to": "out",
+      "label": "evaluates",
+      "dashed": true,
+      "color": "#8c959f",
+      "route": "straight",
+      "from_anchor": "n",
+      "to_anchor": "s"
+    }
+  ]
+}

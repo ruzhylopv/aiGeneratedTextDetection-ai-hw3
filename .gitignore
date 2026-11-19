@@ -1,2 +1,6 @@
 __pycache__/
 outputs/
+# full-run p(AI) curves (69 MB; rebuild with `make -C cluster score`, features are cached in outputs/curves/)
+cluster/results/*/curves_stacker_*.csv.gz
+cluster/results/*/curves_val_*.csv.gz
+cluster/results/*/curves_test_*.csv.gz
