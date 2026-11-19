@@ -16,7 +16,7 @@ fi
 
 CLUSTER_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 source "$CLUSTER_DIR/env.sh"
-mkdir -p "$HW3_LOGS" "$HW3_RUNS"
+mkdir -p "$HW3_LOGS" "$HW3_RUNS" "$HW3_MODELS"
 
 export RUN_PURPOSE=$1
 shift

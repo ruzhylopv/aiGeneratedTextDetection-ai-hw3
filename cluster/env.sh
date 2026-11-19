@@ -11,6 +11,7 @@ export HW3_ROOT=/e/scratch/$PROJECT_ACCOUNT/$USER/ai-hw3
 export HW3_DATA=$HW3_ROOT/data
 export HW3_RUNS=$HW3_ROOT/runs
 export HW3_LOGS=$HW3_ROOT/logs
+export HW3_MODELS=$HW3_ROOT/models  # checkpoints reused by later jobs (not pulled to the laptop)
 ENV_DIR=$HW3_ROOT/venv
 
 # Without GCCcore the PyTorch module is hidden and there is no `python`. torch comes from this module

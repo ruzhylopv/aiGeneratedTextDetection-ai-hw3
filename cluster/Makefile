@@ -1,5 +1,5 @@
 # HW3 encoder on JUPITER. Run from the repo root as `make -C cluster <target>`.
-.PHONY: env data smoke submit jobs usage pull
+.PHONY: env data smoke submit jobs usage pull branch-a gate full score
 
 ACCOUNT := e-dev-2026d09-075
 
@@ -23,6 +23,24 @@ submit:
 	@test -n "$(PURPOSE)" -a -n "$(CMD)" || \
 		{ echo 'usage: make -C cluster submit PURPOSE="..." CMD="python -m ..." [JOB_TIME=hh:mm:ss]'; exit 1; }
 	JOB_TIME=$(or $(JOB_TIME),01:00:00) bash submit.sh "$(PURPOSE)" $(CMD)
+
+# ---- Curve pipeline (see CURVES_JUPITER.md) -----------------------------
+
+# One-time, login node: the tuned Branch A model from Kaggle.
+branch-a:
+	bash fetch_branch_a.sh
+
+# Gate check: small detector + curves and Branch A probs of the gate texts.
+gate:
+	JOB_TIME=00:45:00 JOB_NAME=gate bash submit.sh "curves: gate check" bash jobs/gate.sh
+
+# Full detector, then curves and Branch A probs of the stacker, val and test sets.
+full:
+	JOB_TIME=03:00:00 JOB_NAME=full bash submit.sh "curves: full detector + scoring" bash jobs/full.sh
+
+# Scoring only, with the already trained full detector.
+score:
+	JOB_TIME=02:00:00 JOB_NAME=score bash submit.sh "curves: scoring" bash jobs/score.sh
 
 # Your queued and running jobs.
 jobs:
