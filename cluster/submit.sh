@@ -19,6 +19,8 @@ source "$CLUSTER_DIR/env.sh"
 mkdir -p "$HW3_LOGS" "$HW3_RUNS" "$HW3_MODELS"
 
 export RUN_PURPOSE=$1
+# Compute nodes have no git, so record the commit here; sbatch passes the environment on to the job.
+export RUN_COMMIT="$(git -C "$CLUSTER_DIR" rev-parse --short HEAD) ($(git -C "$CLUSTER_DIR" rev-parse --abbrev-ref HEAD))"
 shift
 
 cd "$CLUSTER_DIR"
