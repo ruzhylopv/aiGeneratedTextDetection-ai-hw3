@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-24 -359.6 1748 680.2" width="1748" height="680.2" font-family="Inter, &apos;Helvetica Neue&apos;, Helvetica, Arial, sans-serif">
+<defs><marker id="arr3d4450" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0,1 L9,5 L0,9 L2.2,5 z" fill="#3d4450"/></marker></defs>
+<rect x="-24" y="-359.6" width="1748" height="680.2" fill="#ffffff"/>
+<polygon points="0,-7 14,-7 14,7 0,7" fill="#A6D9C0" stroke="#4b6256" stroke-width="0.9" stroke-linejoin="round"/>
+<polygon points="17,-7 31,-7 31,7 17,7" fill="#A6D9C0" stroke="#4b6256" stroke-width="0.9" stroke-linejoin="round"/>
+<polygon points="34,-7 48,-7 48,7 34,7" fill="#A6D9C0" stroke="#4b6256" stroke-width="0.9" stroke-linejoin="round"/>
+<polygon points="51,-7 65,-7 65,7 51,7" fill="#A6D9C0" stroke="#4b6256" stroke-width="0.9" stroke-linejoin="round"/>
+<polygon points="68,-7 82,-7 82,7 68,7" fill="#A6D9C0" stroke="#4b6256" stroke-width="0.9" stroke-linejoin="round"/>
+<polygon points="85,-7 99,-7 99,7 85,7" fill="#A6D9C0" stroke="#4b6256" stroke-width="0.9" stroke-linejoin="round"/>
+<polygon points="102,-7 116,-7 116,7 102,7" fill="#A6D9C0" stroke="#4b6256" stroke-width="0.9" stroke-linejoin="round"/>
+<rect x="200" y="-268" width="190" height="56" rx="6" fill="#DCE6FB" stroke="#797f8a" stroke-width="1.1"/>
+<text x="295" y="-243.72" font-size="12" text-anchor="middle" fill="#1f2328"><tspan x="295" dy="0">whole text</tspan><tspan x="295" dy="14.64">≤ 4,096 tokens (start + end)</tspan></text>
+<rect x="200" y="-108" width="190" height="56" rx="6" fill="#FDE5D6" stroke="#8b7e76" stroke-width="1.1"/>
+<text x="295" y="-83.72" font-size="12" text-anchor="middle" fill="#1f2328"><tspan x="295" dy="0">512-token windows</tspan><tspan x="295" dy="14.64">overlap 128</tspan></text>
+<rect x="200" y="52" width="190" height="56" rx="6" fill="#D9F2E7" stroke="#77857f" stroke-width="1.1"/>
+<text x="295" y="76.28" font-size="12" text-anchor="middle" fill="#1f2328"><tspan x="295" dy="0">windows 64 / 128 / 256</tspan><tspan x="295" dy="14.64">step = size / 4</tspan></text>
+<rect x="200" y="212" width="190" height="56" rx="6" fill="#FDF0C9" stroke="#8b846f" stroke-width="1.1"/>
+<text x="295" y="236.28" font-size="12" text-anchor="middle" fill="#1f2328"><tspan x="295" dy="0">Qwen3-8B, no training</tspan><tspan x="295" dy="14.64">log p + entropy per token</tspan></text>
+<rect x="430" y="-268" width="210" height="56" rx="6" fill="#DCE6FB" stroke="#797f8a" stroke-width="1.1"/>
+<text x="535" y="-243.72" font-size="12" text-anchor="middle" fill="#1f2328" font-weight="bold"><tspan x="535" dy="0">BGE-M3 (XLM-R large, 8k)</tspan><tspan x="535" dy="14.64">fine-tuned on 100k texts</tspan></text>
+<rect x="430" y="-108" width="210" height="56" rx="6" fill="#FDE5D6" stroke="#8b7e76" stroke-width="1.1"/>
+<text x="535" y="-83.72" font-size="12" text-anchor="middle" fill="#1f2328"><tspan x="535" dy="0">XLM-R base, 3-class</tspan><tspan x="535" dy="14.64">fine-tuned on 50k texts</tspan></text>
+<rect x="430" y="52" width="210" height="56" rx="6" fill="#D9F2E7" stroke="#77857f" stroke-width="1.1"/>
+<text x="535" y="76.28" font-size="12" text-anchor="middle" fill="#1f2328"><tspan x="535" dy="0">window detector</tspan><tspan x="535" dy="14.64">XLM-R base, human vs ai</tspan></text>
+<rect x="430" y="212" width="210" height="56" rx="6" fill="#FDF0C9" stroke="#8b846f" stroke-width="1.1"/>
+<text x="535" y="236.28" font-size="12" text-anchor="middle" fill="#1f2328"><tspan x="535" dy="0">windows from 32-token chunks</tspan><tspan x="535" dy="14.64">p(AI) calibrated on detector set</tspan></text>
+<rect x="680" y="-108" width="220" height="56" rx="6" fill="#FDE5D6" stroke="#8b7e76" stroke-width="1.1"/>
+<text x="790" y="-83.72" font-size="12" text-anchor="middle" fill="#1f2328"><tspan x="790" dy="0">mean over</tspan><tspan x="790" dy="14.64">windows</tspan></text>
+<polygon points="680,69 702,69 702,91 680,91" fill="#FFFFFF" stroke="#57606a" stroke-width="0.7" stroke-linejoin="miter"/>
+<polygon points="702,69 724,69 724,91 702,91" fill="#FFFFFF" stroke="#57606a" stroke-width="0.7" stroke-linejoin="miter"/>
+<polygon points="724,69 746,69 746,91 724,91" fill="#FFFFFF" stroke="#57606a" stroke-width="0.7" stroke-linejoin="miter"/>
+<polygon points="746,69 768,69 768,91 746,91" fill="#FFFFFF" stroke="#57606a" stroke-width="0.7" stroke-linejoin="miter"/>
+<polygon points="768,69 790,69 790,91 768,91" fill="#FFFFFF" stroke="#57606a" stroke-width="0.7" stroke-linejoin="miter"/>
+<polygon points="790,69 812,69 812,91 790,91" fill="#FFFFFF" stroke="#57606a" stroke-width="0.7" stroke-linejoin="miter"/>
+<polygon points="812,69 834,69 834,91 812,91" fill="#FFFFFF" stroke="#57606a" stroke-width="0.7" stroke-linejoin="miter"/>
+<polygon points="834,69 856,69 856,91 834,91" fill="#FFFFFF" stroke="#57606a" stroke-width="0.7" stroke-linejoin="miter"/>
+<polygon points="856,69 878,69 878,91 856,91" fill="#FFFFFF" stroke="#57606a" stroke-width="0.7" stroke-linejoin="miter"/>
+<polygon points="878,69 900,69 900,91 878,91" fill="#FFFFFF" stroke="#57606a" stroke-width="0.7" stroke-linejoin="miter"/>
+<rect x="768" y="69" width="88" height="22" fill="#1baf7a" fill-opacity="0.22" stroke="#1baf7a" stroke-width="2"/>
+<text x="691" y="83.3" font-size="11" text-anchor="middle" fill="#1f2328">0</text>
+<text x="713" y="83.3" font-size="11" text-anchor="middle" fill="#1f2328">0</text>
+<text x="735" y="83.3" font-size="11" text-anchor="middle" fill="#1f2328">0</text>
+<text x="757" y="83.3" font-size="11" text-anchor="middle" fill="#1f2328">.1</text>
+<text x="779" y="83.3" font-size="11" text-anchor="middle" fill="#1f2328">.9</text>
+<text x="801" y="83.3" font-size="11" text-anchor="middle" fill="#1f2328">1</text>
+<text x="823" y="83.3" font-size="11" text-anchor="middle" fill="#1f2328">1</text>
+<text x="845" y="83.3" font-size="11" text-anchor="middle" fill="#1f2328">.8</text>
+<text x="867" y="83.3" font-size="11" text-anchor="middle" fill="#1f2328">0</text>
+<text x="889" y="83.3" font-size="11" text-anchor="middle" fill="#1f2328">0</text>
+<polygon points="680,229 702,229 702,251 680,251" fill="#FFFFFF" stroke="#57606a" stroke-width="0.7" stroke-linejoin="miter"/>
+<polygon points="702,229 724,229 724,251 702,251" fill="#FFFFFF" stroke="#57606a" stroke-width="0.7" stroke-linejoin="miter"/>
+<polygon points="724,229 746,229 746,251 724,251" fill="#FFFFFF" stroke="#57606a" stroke-width="0.7" stroke-linejoin="miter"/>
+<polygon points="746,229 768,229 768,251 746,251" fill="#FFFFFF" stroke="#57606a" stroke-width="0.7" stroke-linejoin="miter"/>
+<polygon points="768,229 790,229 790,251 768,251" fill="#FFFFFF" stroke="#57606a" stroke-width="0.7" stroke-linejoin="miter"/>
+<polygon points="790,229 812,229 812,251 790,251" fill="#FFFFFF" stroke="#57606a" stroke-width="0.7" stroke-linejoin="miter"/>
+<polygon points="812,229 834,229 834,251 812,251" fill="#FFFFFF" stroke="#57606a" stroke-width="0.7" stroke-linejoin="miter"/>
+<polygon points="834,229 856,229 856,251 834,251" fill="#FFFFFF" stroke="#57606a" stroke-width="0.7" stroke-linejoin="miter"/>
+<polygon points="856,229 878,229 878,251 856,251" fill="#FFFFFF" stroke="#57606a" stroke-width="0.7" stroke-linejoin="miter"/>
+<polygon points="878,229 900,229 900,251 878,251" fill="#FFFFFF" stroke="#57606a" stroke-width="0.7" stroke-linejoin="miter"/>
+<rect x="768" y="229" width="88" height="22" fill="#eda100" fill-opacity="0.22" stroke="#eda100" stroke-width="2"/>
+<text x="691" y="243.3" font-size="11" text-anchor="middle" fill="#1f2328">.1</text>
+<text x="713" y="243.3" font-size="11" text-anchor="middle" fill="#1f2328">.2</text>
+<text x="735" y="243.3" font-size="11" text-anchor="middle" fill="#1f2328">.1</text>
+<text x="757" y="243.3" font-size="11" text-anchor="middle" fill="#1f2328">.3</text>
+<text x="779" y="243.3" font-size="11" text-anchor="middle" fill="#1f2328">.6</text>
+<text x="801" y="243.3" font-size="11" text-anchor="middle" fill="#1f2328">.7</text>
+<text x="823" y="243.3" font-size="11" text-anchor="middle" fill="#1f2328">.6</text>
+<text x="845" y="243.3" font-size="11" text-anchor="middle" fill="#1f2328">.5</text>
+<text x="867" y="243.3" font-size="11" text-anchor="middle" fill="#1f2328">.2</text>
+<text x="889" y="243.3" font-size="11" text-anchor="middle" fill="#1f2328">.2</text>
+<rect x="940" y="-268" width="150" height="56" rx="6" fill="#DCE6FB" stroke="#797f8a" stroke-width="1.1"/>
+<text x="1015" y="-243.72" font-size="12" text-anchor="middle" fill="#1f2328"><tspan x="1015" dy="0">log p(class)</tspan><tspan x="1015" dy="14.64">3 features</tspan></text>
+<rect x="940" y="-108" width="150" height="56" rx="6" fill="#FDE5D6" stroke="#8b7e76" stroke-width="1.1"/>
+<text x="1015" y="-83.72" font-size="12" text-anchor="middle" fill="#1f2328"><tspan x="1015" dy="0">log p(class)</tspan><tspan x="1015" dy="14.64">3 features</tspan></text>
+<rect x="940" y="52" width="150" height="56" rx="6" fill="#D9F2E7" stroke="#77857f" stroke-width="1.1"/>
+<text x="1015" y="76.28" font-size="12" text-anchor="middle" fill="#1f2328"><tspan x="1015" dy="0">curve features</tspan><tspan x="1015" dy="14.64">66 features</tspan></text>
+<rect x="940" y="212" width="150" height="56" rx="6" fill="#FDF0C9" stroke="#8b846f" stroke-width="1.1"/>
+<text x="1015" y="236.28" font-size="12" text-anchor="middle" fill="#1f2328"><tspan x="1015" dy="0">Qwen features</tspan><tspan x="1015" dy="14.64">64 features</tspan></text>
+<circle cx="1161" cy="0" r="11" fill="#FFFFFF" stroke="#3d4450" stroke-width="1.2"/>
+<text x="1161" y="4.79" font-size="15.95" text-anchor="middle" fill="#1f2328" font-weight="bold">C</text>
+<rect x="1220" y="-35" width="170" height="70" rx="6" fill="#EEF0F2" stroke="#838485" stroke-width="1.1"/>
+<text x="1305" y="-11.04" font-size="12" text-anchor="middle" fill="#1f2328" font-weight="bold"><tspan x="1305" dy="0">standardize +</tspan><tspan x="1305" dy="14.64">logistic regression</tspan><tspan x="1305" dy="14.64">136 features, C = 0.1</tspan></text>
+<rect x="1430" y="-35" width="160" height="70" rx="6" fill="#EEF0F2" stroke="#838485" stroke-width="1.1"/>
+<text x="1510" y="-3.72" font-size="12" text-anchor="middle" fill="#1f2328"><tspan x="1510" dy="0">× class weights</tspan><tspan x="1510" dy="14.64">human 1.4 · fusion 1.5</tspan></text>
+<rect x="1630" y="-35" width="70" height="70" rx="6" fill="#E6DDF5" stroke="#7f7a87" stroke-width="1.1"/>
+<text x="1665" y="-11.04" font-size="12" text-anchor="middle" fill="#1f2328"><tspan x="1665" dy="0">human</tspan><tspan x="1665" dy="14.64">ai</tspan><tspan x="1665" dy="14.64">fusion</tspan></text>
+<path d="M116,-0 L116,-232 Q116,-240 124,-240 L200,-240" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<path d="M116,-0 L116,-72 Q116,-80 124,-80 L200,-80" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<path d="M116,-0 L116,72 Q116,80 124,80 L200,80" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<path d="M116,-0 L116,232 Q116,240 124,240 L200,240" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<path d="M390,-240 L430,-240" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<path d="M640,-240 L940,-240" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<path d="M390,-80 L430,-80" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<path d="M640,-80 L680,-80" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<path d="M900,-80 L940,-80" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<path d="M390,80 L430,80" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<path d="M640,80 L680,80" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<path d="M900,80 L940,80" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<path d="M390,240 L430,240" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<path d="M640,240 L680,240" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<path d="M900,240 L940,240" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<path d="M1090,-240 L1153,-240 Q1161,-240 1161,-232 L1161,-11" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<path d="M1090,-80 L1153,-80 Q1161,-80 1161,-72 L1161,-11" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<path d="M1090,80 L1153,80 Q1161,80 1161,72 L1161,11" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<path d="M1090,240 L1153,240 Q1161,240 1161,232 L1161,11" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<path d="M1172,-0 L1220,-0" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<path d="M1390,-0 L1430,-0" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<path d="M1590,-0 L1630,-0" fill="none" stroke="#3d4450" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr3d4450)"/>
+<text x="58" y="27" font-size="12" text-anchor="middle" fill="#1f2328"><tspan x="58" dy="0">text</tspan><tspan x="58" dy="14.64">(EN / DE)</tspan></text>
+<text x="790" y="111" font-size="12" text-anchor="middle" fill="#1f2328">p(AI) per window</text>
+<text x="790" y="271" font-size="12" text-anchor="middle" fill="#1f2328">calibrated p(AI) per window</text>
+<text x="1015" y="-276" font-size="11" text-anchor="middle" fill="#57606a" font-style="italic">56% of decision</text>
+<text x="1015" y="-116" font-size="11" text-anchor="middle" fill="#57606a" font-style="italic">16% of decision</text>
+<text x="1015" y="44" font-size="11" text-anchor="middle" fill="#57606a" font-style="italic">16% of decision</text>
+<text x="1015" y="204" font-size="11" text-anchor="middle" fill="#57606a" font-style="italic">13% of decision</text>
+<text x="790" y="-246" font-size="10.5" text-anchor="middle" fill="#57606a" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke">one pass per text</text>
+<text x="0" y="-322.8" font-size="16" text-anchor="start" fill="#1f2328" font-weight="bold">Final model: four inputs, one logistic regression</text>
+<text x="0" y="-300.8" font-size="12" text-anchor="start" fill="#57606a">val macro-F1 0.9624 · public LB 0.9646 · % = share of the fusion-vs-human decision (final_xai.ipynb)</text>
+<polygon points="0,295.4 11,295.4 11,284.4 0,284.4" fill="#DCE6FB" stroke="#636771" stroke-width="0.7" stroke-linejoin="round"/>
+<polygon points="0,284.4 11,284.4 16,280.4 5,280.4" fill="#e9f0fd" stroke="#636771" stroke-width="0.7" stroke-linejoin="round"/>
+<polygon points="11,295.4 16,291.4 16,280.4 11,284.4" fill="#bdc6d8" stroke="#636771" stroke-width="0.7" stroke-linejoin="round"/>
+<text x="22" y="294.4" font-size="11" text-anchor="start" fill="#1f2328">encoder v2</text>
+<polygon points="97.64,295.4 108.64,295.4 108.64,284.4 97.64,284.4" fill="#FDE5D6" stroke="#726760" stroke-width="0.7" stroke-linejoin="round"/>
+<polygon points="97.64,284.4 108.64,284.4 113.64,280.4 102.64,280.4" fill="#feefe6" stroke="#726760" stroke-width="0.7" stroke-linejoin="round"/>
+<polygon points="108.64,295.4 113.64,291.4 113.64,280.4 108.64,284.4" fill="#dac5b8" stroke="#726760" stroke-width="0.7" stroke-linejoin="round"/>
+<text x="119.64" y="294.4" font-size="11" text-anchor="start" fill="#1f2328">Branch A</text>
+<polygon points="184.28,295.4 195.28,295.4 195.28,284.4 184.28,284.4" fill="#D9F2E7" stroke="#626d68" stroke-width="0.7" stroke-linejoin="round"/>
+<polygon points="184.28,284.4 195.28,284.4 200.28,280.4 189.28,280.4" fill="#e7f7f0" stroke="#626d68" stroke-width="0.7" stroke-linejoin="round"/>
+<polygon points="195.28,295.4 200.28,291.4 200.28,280.4 195.28,284.4" fill="#bbd0c7" stroke="#626d68" stroke-width="0.7" stroke-linejoin="round"/>
+<text x="206.28" y="294.4" font-size="11" text-anchor="start" fill="#1f2328">detector curves</text>
+<polygon points="305.9,295.4 316.9,295.4 316.9,284.4 305.9,284.4" fill="#FDF0C9" stroke="#726c5a" stroke-width="0.7" stroke-linejoin="round"/>
+<polygon points="305.9,284.4 316.9,284.4 321.9,280.4 310.9,280.4" fill="#fef6de" stroke="#726c5a" stroke-width="0.7" stroke-linejoin="round"/>
+<polygon points="316.9,295.4 321.9,291.4 321.9,280.4 316.9,284.4" fill="#dacead" stroke="#726c5a" stroke-width="0.7" stroke-linejoin="round"/>
+<text x="327.9" y="294.4" font-size="11" text-anchor="start" fill="#1f2328">Qwen (frozen LLM)</text>
+<polygon points="444.02,295.4 455.02,295.4 455.02,284.4 444.02,284.4" fill="#EEF0F2" stroke="#6b6c6d" stroke-width="0.7" stroke-linejoin="round"/>
+<polygon points="444.02,284.4 455.02,284.4 460.02,280.4 449.02,280.4" fill="#f4f6f7" stroke="#6b6c6d" stroke-width="0.7" stroke-linejoin="round"/>
+<polygon points="455.02,295.4 460.02,291.4 460.02,280.4 455.02,284.4" fill="#cdced0" stroke="#6b6c6d" stroke-width="0.7" stroke-linejoin="round"/>
+<text x="466.02" y="294.4" font-size="11" text-anchor="start" fill="#1f2328">stacker</text>
+</svg>

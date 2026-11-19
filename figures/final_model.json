@@ -1,0 +1,400 @@
+{
+  "title": "Final model: four inputs, one logistic regression",
+  "subtitle": "val macro-F1 0.9624 · public LB 0.9646 · % = share of the fusion-vs-human decision (final_xai.ipynb)",
+  "style": {
+    "gap": 40,
+    "font_size": 12
+  },
+  "auto_edges": false,
+  "legend": [
+    {
+      "label": "encoder v2",
+      "color": "#DCE6FB"
+    },
+    {
+      "label": "Branch A",
+      "color": "#FDE5D6"
+    },
+    {
+      "label": "detector curves",
+      "color": "#D9F2E7"
+    },
+    {
+      "label": "Qwen (frozen LLM)",
+      "color": "#FDF0C9"
+    },
+    {
+      "label": "stacker",
+      "color": "#EEF0F2"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "text",
+      "type": "tokens",
+      "n": 7,
+      "orient": "horizontal",
+      "label": "text\n(EN / DE)",
+      "x": 0,
+      "y": 0,
+      "legend": false
+    },
+    {
+      "id": "e1",
+      "type": "block",
+      "label": "whole text\n≤ 4,096 tokens (start + end)",
+      "color": "#DCE6FB",
+      "w": 190,
+      "h": 56,
+      "x": 200,
+      "y": -240
+    },
+    {
+      "id": "e2",
+      "type": "block",
+      "label": "BGE-M3 (XLM-R large, 8k)\nfine-tuned on 100k texts",
+      "bold": true,
+      "color": "#DCE6FB",
+      "w": 210,
+      "h": 56,
+      "x": 430,
+      "y": -240
+    },
+    {
+      "id": "e4",
+      "type": "block",
+      "label": "log p(class)\n3 features",
+      "color": "#DCE6FB",
+      "w": 150,
+      "h": 56,
+      "x": 940,
+      "y": -240,
+      "caption": "56% of decision"
+    },
+    {
+      "id": "a1",
+      "type": "block",
+      "label": "512-token windows\noverlap 128",
+      "color": "#FDE5D6",
+      "w": 190,
+      "h": 56,
+      "x": 200,
+      "y": -80
+    },
+    {
+      "id": "a2",
+      "type": "block",
+      "label": "XLM-R base, 3-class\nfine-tuned on 50k texts",
+      "color": "#FDE5D6",
+      "w": 210,
+      "h": 56,
+      "x": 430,
+      "y": -80
+    },
+    {
+      "id": "a3",
+      "type": "block",
+      "label": "mean over\nwindows",
+      "color": "#FDE5D6",
+      "w": 220,
+      "h": 56,
+      "x": 680,
+      "y": -80
+    },
+    {
+      "id": "a4",
+      "type": "block",
+      "label": "log p(class)\n3 features",
+      "color": "#FDE5D6",
+      "w": 150,
+      "h": 56,
+      "x": 940,
+      "y": -80,
+      "caption": "16% of decision"
+    },
+    {
+      "id": "d1",
+      "type": "block",
+      "label": "windows 64 / 128 / 256\nstep = size / 4",
+      "color": "#D9F2E7",
+      "w": 190,
+      "h": 56,
+      "x": 200,
+      "y": 80
+    },
+    {
+      "id": "d2",
+      "type": "block",
+      "label": "window detector\nXLM-R base, human vs ai",
+      "color": "#D9F2E7",
+      "w": 210,
+      "h": 56,
+      "x": 430,
+      "y": 80
+    },
+    {
+      "id": "d3",
+      "type": "grid",
+      "rows": 1,
+      "cols": 10,
+      "cell": 22,
+      "values": [
+        [
+          "0",
+          "0",
+          "0",
+          ".1",
+          ".9",
+          "1",
+          "1",
+          ".8",
+          "0",
+          "0"
+        ]
+      ],
+      "highlight": [
+        {
+          "r": 0,
+          "c": 4,
+          "h": 1,
+          "w": 4,
+          "color": "#1baf7a"
+        }
+      ],
+      "x": 680,
+      "y": 80,
+      "legend": false,
+      "label": "p(AI) per window"
+    },
+    {
+      "id": "d4",
+      "type": "block",
+      "label": "curve features\n66 features",
+      "color": "#D9F2E7",
+      "w": 150,
+      "h": 56,
+      "x": 940,
+      "y": 80,
+      "caption": "16% of decision"
+    },
+    {
+      "id": "q1",
+      "type": "block",
+      "label": "Qwen3-8B, no training\nlog p + entropy per token",
+      "color": "#FDF0C9",
+      "w": 190,
+      "h": 56,
+      "x": 200,
+      "y": 240
+    },
+    {
+      "id": "q2",
+      "type": "block",
+      "label": "windows from 32-token chunks\np(AI) calibrated on detector set",
+      "color": "#FDF0C9",
+      "w": 210,
+      "h": 56,
+      "x": 430,
+      "y": 240
+    },
+    {
+      "id": "q3",
+      "type": "grid",
+      "rows": 1,
+      "cols": 10,
+      "cell": 22,
+      "values": [
+        [
+          ".1",
+          ".2",
+          ".1",
+          ".3",
+          ".6",
+          ".7",
+          ".6",
+          ".5",
+          ".2",
+          ".2"
+        ]
+      ],
+      "highlight": [
+        {
+          "r": 0,
+          "c": 4,
+          "h": 1,
+          "w": 4,
+          "color": "#eda100"
+        }
+      ],
+      "x": 680,
+      "y": 240,
+      "legend": false,
+      "label": "calibrated p(AI) per window"
+    },
+    {
+      "id": "q4",
+      "type": "block",
+      "label": "Qwen features\n64 features",
+      "color": "#FDF0C9",
+      "w": 150,
+      "h": 56,
+      "x": 940,
+      "y": 240,
+      "caption": "13% of decision"
+    },
+    {
+      "id": "cat",
+      "type": "op",
+      "symbol": "C",
+      "x": 1150,
+      "y": 0,
+      "legend": false
+    },
+    {
+      "id": "lr",
+      "type": "block",
+      "label": "standardize +\nlogistic regression\n136 features, C = 0.1",
+      "bold": true,
+      "color": "#EEF0F2",
+      "w": 170,
+      "h": 70,
+      "x": 1220,
+      "y": 0
+    },
+    {
+      "id": "cw",
+      "type": "block",
+      "label": "× class weights\nhuman 1.4 · fusion 1.5",
+      "color": "#EEF0F2",
+      "w": 160,
+      "h": 70,
+      "x": 1430,
+      "y": 0
+    },
+    {
+      "id": "out",
+      "type": "block",
+      "label": "human\nai\nfusion",
+      "color": "#E6DDF5",
+      "w": 70,
+      "h": 70,
+      "x": 1630,
+      "y": 0
+    }
+  ],
+  "edges": [
+    {
+      "from": "text",
+      "to": "e1",
+      "route": "vh",
+      "from_anchor": "e",
+      "to_anchor": "w"
+    },
+    {
+      "from": "text",
+      "to": "a1",
+      "route": "vh",
+      "from_anchor": "e",
+      "to_anchor": "w"
+    },
+    {
+      "from": "text",
+      "to": "d1",
+      "route": "vh",
+      "from_anchor": "e",
+      "to_anchor": "w"
+    },
+    {
+      "from": "text",
+      "to": "q1",
+      "route": "vh",
+      "from_anchor": "e",
+      "to_anchor": "w"
+    },
+    {
+      "from": "e1",
+      "to": "e2"
+    },
+    {
+      "from": "e2",
+      "to": "e4",
+      "label": "one pass per text"
+    },
+    {
+      "from": "a1",
+      "to": "a2"
+    },
+    {
+      "from": "a2",
+      "to": "a3"
+    },
+    {
+      "from": "a3",
+      "to": "a4"
+    },
+    {
+      "from": "d1",
+      "to": "d2"
+    },
+    {
+      "from": "d2",
+      "to": "d3"
+    },
+    {
+      "from": "d3",
+      "to": "d4"
+    },
+    {
+      "from": "q1",
+      "to": "q2"
+    },
+    {
+      "from": "q2",
+      "to": "q3"
+    },
+    {
+      "from": "q3",
+      "to": "q4"
+    },
+    {
+      "from": "e4",
+      "to": "cat",
+      "route": "hv",
+      "from_anchor": "e",
+      "to_anchor": "n"
+    },
+    {
+      "from": "a4",
+      "to": "cat",
+      "route": "hv",
+      "from_anchor": "e",
+      "to_anchor": "n"
+    },
+    {
+      "from": "d4",
+      "to": "cat",
+      "route": "hv",
+      "from_anchor": "e",
+      "to_anchor": "s"
+    },
+    {
+      "from": "q4",
+      "to": "cat",
+      "route": "hv",
+      "from_anchor": "e",
+      "to_anchor": "s"
+    },
+    {
+      "from": "cat",
+      "to": "lr"
+    },
+    {
+      "from": "lr",
+      "to": "cw"
+    },
+    {
+      "from": "cw",
+      "to": "out"
+    }
+  ]
+}
